@@ -46,18 +46,18 @@ import qrcode
 # ==================== CONFIGURATION ====================
 @dataclass
 class Config:
-    BOT_TOKEN: str = "BOT TOKEN"
+    BOT_TOKEN: str = os.getenv("BOT_TOKEN", "")
     ADMIN_IDS: list = field(default_factory=lambda: [USERID, USERID ])
-    CHANNEL_USERNAME: str = "@ZeRoPiNg_oTp"
-    CHANNEL_ID: int = ID
-    DATABASE_URL: str = "sqlite+aiosqlite:///numsellbot.db"
-    UPI_ID: str = "ENTER UR"
-    UPI_NAME: str = "ENTER UR"
-    MIN_DEPOSIT: int = 20
-    ENCRYPTION_KEY: str = "Tgaccountsellbymytgbothere"
-    API_ID: int = ENTER  API ID
-    API_HASH: str = "ENTER HASH"
-    QR_CLEANUP_MINUTES: int = 12
+    CHANNEL_USERNAME: str = os.getenv("CHANNEL_USERNAME", "@ZeRoPiNg_oTp")
+    CHANNEL_ID: int = int(os.getenv("CHANNEL_ID", "0"))
+    DATABASE_URL: str = os.getenv("DATABASE_URL", "sqlite+aiosqlite:///numsellbot.db")
+    UPI_ID: str = os.getenv("UPI_ID", "")
+    UPI_NAME: str = os.getenv("UPI_NAME", "")
+    MIN_DEPOSIT: int = int(os.getenv("MIN_DEPOSIT", "20"))
+    ENCRYPTION_KEY: str = os.getenv("ENCRYPTION_KEY", "")
+    API_ID: int = int(os.getenv("API_ID", "0"))
+    API_HASH: str = os.getenv("API_HASH", "")
+    QR_CLEANUP_MINUTES: int = int(os.getenv("QR_CLEANUP_MINUTES", "12"))
 
 config = Config()
 
